@@ -15,6 +15,10 @@ func NewRouter(st *store.Store) *gin.Engine {
 	router := gin.New()
 	router.Use(gin.Recovery())
 
+	router.POST("/api/v1/backfills", createBackfill(st))
+	router.GET("/api/v1/backfills/:id", getBackfill(st))
+	router.GET("/api/v1/datasets/:dataset_id/coverage", getCoverage(st))
+
 	router.GET("/healthz", func(c *gin.Context) {
 		if err := st.Ping(); err != nil {
 			c.JSON(http.StatusServiceUnavailable, gin.H{"error": gin.H{"code": "storage_unavailable", "message": "database is not available"}})
