@@ -1,12 +1,12 @@
-// Command feature-flag-service serves the HTTP API described in README.md.
+// Command qry-backfill-dedup serves the HTTP API described in README.md.
 package main
 
 import (
 	"log"
 	"os"
 
-	"github.com/luwa07832/feature-flag-service/internal/api"
-	"github.com/luwa07832/feature-flag-service/internal/store"
+	"github.com/kc1wfotfm4/qry-backfill-dedup/internal/api"
+	"github.com/kc1wfotfm4/qry-backfill-dedup/internal/store"
 )
 
 func main() {
@@ -16,7 +16,7 @@ func main() {
 	}
 	databasePath := os.Getenv("DB_PATH")
 	if databasePath == "" {
-		databasePath = "feature-flag-service.db"
+		databasePath = "qry-backfill-dedup.db"
 	}
 
 	st, err := store.Open(databasePath)

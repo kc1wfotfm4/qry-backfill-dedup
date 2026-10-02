@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/luwa07832/feature-flag-service/internal/store"
+	"github.com/kc1wfotfm4/qry-backfill-dedup/internal/store"
 )
 
 func TestHealthzReportsOK(t *testing.T) {
